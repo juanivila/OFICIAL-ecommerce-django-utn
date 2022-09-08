@@ -12,8 +12,10 @@ class ProductoAdmin(admin.ModelAdmin):
 		("Stock", {"fields": ['stock']}),
 		]
 	
-	# Table
+	# Customize
 	list_display = ['nombre_producto', 'tipo_de_prenda', 'color', 'talle', 'stocks']
+	list_filter = ('tipo_de_prenda', 'talle', 'color')
+	search_fields = ('tipo_de_prenda', 'color')
 
 
 admin.site.register(Valor)
