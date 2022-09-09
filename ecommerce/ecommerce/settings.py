@@ -17,6 +17,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+	'django.contrib.sites',
+	'registration',  # should be immediately above 'django.contrib.admin'
 	'django.contrib.admin',
 	'django.contrib.auth',
 	'django.contrib.contenttypes',
@@ -25,8 +27,10 @@ INSTALLED_APPS = [
 	'django.contrib.staticfiles',
 	
 	# My apps
-	'clientes.apps.ClientesConfig',
+	'usuarios.apps.UsuariosConfig',
 	'productos.apps.ProductosConfig'
+	
+	# Third party apps
 	]
 
 MIDDLEWARE = [
@@ -109,3 +113,10 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Registration Redux
+LOGIN_REDIRECT_URL = '/home'
+LOGIN_URL = 'django.contrib.auth.views.login'
+ACCOUNT_ACTIVATION_DAYS = 7  # One-week activation window; you may, of course, use a different value.
+REGISTRATION_AUTO_LOGIN = True  # Automatically log the user in.
+SITE_ID = 1
