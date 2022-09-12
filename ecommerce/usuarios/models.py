@@ -15,8 +15,7 @@ class DatosUsuario(models.Model):
 	domicilio = models.CharField(max_length=80, blank=True)
 	codigo_postal = models.CharField(max_length=50, blank=True)
 	telefono = models.CharField(max_length=30, blank=True)
-	celular = models.CharField(max_length=30, blank=True)
-	documento = models.CharField(max_length=30, blank=True)
+	dni = models.CharField(max_length=30, blank=True)
 	cuit = models.CharField(max_length=30, blank=True)
 	
 	def __str__(self):
