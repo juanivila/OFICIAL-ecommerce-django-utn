@@ -1,0 +1,28 @@
+@import "variables";
+
+body {
+  background: $white
+}
+
+#logo {
+  width: 115px;
+}
+
+.bg-light {
+  background-color: $white;
+}
+
+#btn-login {
+  background-color: $primary;
+  color: $white;
+}
+
+#login-title {
+  color: $primary
+}
+
+
+#shopping-cart {
+  max-width: 110px;
+}
+

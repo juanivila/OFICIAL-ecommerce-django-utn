@@ -34,3 +34,8 @@ agregarle los datos necesarios.
 
 La aplicacion productos se encarga de realizar la gestion interna y externa de los productos (tanto del lado del usuario como del administrador). Para ello
 se encuentra el proceso de desarrollo las bases de datos necesarias para la realizacion del proyecto.
+
+### Otras aclaraciones
+
+1. El archivo styles.css se encuentra dentro de la carpeta de SCSS ya que, al encontrarme trabajando con Pycharm, la compilacion la realiza de manera
+   automatica.
