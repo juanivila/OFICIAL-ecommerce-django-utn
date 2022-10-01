@@ -9,3 +9,11 @@ def home(request):
 
 def login(request):
 	return render(request, 'productos/login.html')
+
+
+def register(request):
+	return render(request, 'productos/register.html')
+
+
+def categoria_hombres(request):
+	return render(request, 'productos/categoria-hombres.html')
