@@ -1,0 +1,31 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+
+
+
+{% block inner_content %}
+
+	{% include 'base/modules/navbar.html' %}
+
+	<h1 class="text-center pt-4" id="title-categories">Mujeres</h1>
+	{% for producto in productos %}
+		<img src="{{ producto }}" alt="producto">
+
+	{% endfor %}
+
+
+	<div class="container text-center pt-5">
+		<div class="row">
+
+			{% for producto in productos %}
+				<div class="col">
+					<img src="{{ producto.imagen }}" alt="{{ producto.id }}">
+
+				</div>
+			{% endfor %}
+
+
+		</div>
+	</div>
+
+{% endblock %}

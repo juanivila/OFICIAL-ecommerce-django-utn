@@ -18,9 +18,23 @@ def register(request):
 	return render(request, 'productos/register.html')
 
 
-def categoria_hombres(request):
+def hombres(request):
 	params = {}
 	productos = Producto.objects.filter(Q(genero='HOMBRES'), )
 	params['productos'] = productos
-	print(params)
+
 	return render(request, 'productos/categoria-hombres.html', params)
+
+
+def mujeres(request):
+	params = {}
+	productos = Producto.objects.filter(Q(genero='MUJERES'), )
+	params['productos'] = productos
+	return render(request, 'productos/categoria-mujeres.html', params)
+
+
+def ninos(request):
+	params = {}
+	productos = Producto.objects.filter(Q(genero='NINOS'), )
+	params['productos'] = productos
+	return render(request, 'productos/categoria-ninos.html', params)
