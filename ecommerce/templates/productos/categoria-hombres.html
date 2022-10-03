@@ -4,26 +4,37 @@
 
 
 {% block inner_content %}
-
+	
 	{% include 'base/modules/navbar.html' %}
-
+	
 	<h1 class="text-center pt-4" id="title-categories">Hombres</h1>
-
-
+	{% for producto in productos %}
+		<img src="{{ producto.imagen.url }}" alt="producto">
+	
+	{% endfor %}
+	
+	
 	<div class="container text-center pt-5">
 		<div class="row">
+			
+			
 			<div class="col">
 				Column
 			</div>
-			<div class="col">
-				Column
-			</div>
-			<div class="col">
-				Column
-			</div>
-			<div class="col">
-				Column
-			</div>
+			
+			
+			{#			<div class="col">#}
+			{#				Column#}
+			{#			</div>#}
+			{#			<div class="col">#}
+			{#				Column#}
+			{#			</div>#}
+			{#			<div class="col">#}
+			{#				Column#}
+			{#			</div>#}
+			{#			<div class="col">#}
+			{#				Column#}
+			{#			</div>#}
 		</div>
 	</div>
 

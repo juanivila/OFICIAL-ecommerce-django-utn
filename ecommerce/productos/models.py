@@ -7,7 +7,16 @@ from django.utils.html import format_html
 class Producto(models.Model):
 	# -------------------- Choices ------------------------------
 	
-	# ---- Colores ----
+	HO = 'HOMBRES'
+	MU = 'MUJERES'
+	NI = "NINOS"
+	
+	GENERO_CHOICES = [
+		(HO, 'Hombre'),
+		(MU, 'Mujeres'),
+		(NI, "Ninos")
+		]
+	
 	RO = 'ROJO'
 	AZ = 'AZUL'
 	VE = 'VERDE'
@@ -60,10 +69,13 @@ class Producto(models.Model):
 	
 	# -------------------- Models ------------------------------
 	nombre_producto = models.CharField(verbose_name='producto', max_length=50)
+	imagen = models.ImageField(verbose_name='imagen')
+	genero = models.CharField(verbose_name='genero', max_length=10, choices=GENERO_CHOICES)
+	fecha_agregado = models.DateTimeField(verbose_name='date', auto_now_add=True)
 	tipo_de_prenda = models.CharField(verbose_name='prenda', max_length=50, choices=PRODUCTOS_CHOICES)
 	color = models.CharField(verbose_name='color', max_length=35, choices=COLOR_CHOICES)
 	talle = models.CharField(verbose_name='talle', max_length=5, choices=TALLES_CHOICES)
-	valor = models.ForeignKey("Valor", on_delete=models.CASCADE, default=0)
+	valor = models.FloatField(verbose_name='valor')
 	stock = models.IntegerField(default=0)
 	
 	def __str__(self):
@@ -74,11 +86,3 @@ class Producto(models.Model):
 		if self.stock < 10:
 			return format_html('<a style="color: #f00;">{}</a>', f"{self.stock}. Reponer mercaderia.")
 		else: return self.stock
-
-
-class Valor(models.Model):
-	precio_de_venta = models.DecimalField(decimal_places=2, max_digits=6)
-	costo_de_adquisicion = models.DecimalField(decimal_places=2, max_digits=6)
-	
-	def __str__(self):
-		return f"Venta: ${self.precio_de_venta} Costo: ${self.costo_de_adquisicion}"
