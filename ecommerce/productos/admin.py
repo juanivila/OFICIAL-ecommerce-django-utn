@@ -14,6 +14,6 @@ class ProductoAdmin(admin.ModelAdmin):
 		]
 	
 	# Customize
-	list_display = ['nombre_producto', 'tipo_de_prenda', 'color', 'talle', 'stocks']
+	list_display = ['nombre_producto', 'genero', 'tipo_de_prenda', 'color', 'talle', 'stocks']
 	list_filter = ('tipo_de_prenda', 'talle', 'color')
 	search_fields = ('tipo_de_prenda', 'color')

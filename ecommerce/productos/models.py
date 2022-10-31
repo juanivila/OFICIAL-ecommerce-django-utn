@@ -23,6 +23,8 @@ class Producto(models.Model):
 	AM = 'AMARILLO'
 	MO = 'MOSTAZA'
 	BO = 'BORDO'
+	NE = 'NEGRO'
+	BL = 'BLANCO'
 	
 	COLOR_CHOICES = [
 		(RO, "Rojo"),
@@ -30,7 +32,9 @@ class Producto(models.Model):
 		(VE, "Verde"),
 		(AM, "Amarillo"),
 		(MO, "Mostaza"),
-		(BO, "Bordo")
+		(BO, "Bordo"),
+		(NE, "Negro"),
+		(BL, 'Blanco')
 		]
 	# ---- Talles ----
 	XS = "XS"
@@ -68,7 +72,7 @@ class Producto(models.Model):
 		]
 	
 	# -------------------- Models ------------------------------
-	nombre_producto = models.CharField(verbose_name='producto', max_length=50)
+	nombre_producto = models.CharField(max_length=50)
 	imagen = models.ImageField(verbose_name='imagen')
 	genero = models.CharField(verbose_name='genero', max_length=10, choices=GENERO_CHOICES)
 	fecha_agregado = models.DateTimeField(verbose_name='date', auto_now_add=True)
