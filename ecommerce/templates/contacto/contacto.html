@@ -1,0 +1,36 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+
+{% block inner_content %}
+	<a class="d-block text-center pt-5" href="{% url 'home' %}">
+		<img class="" src="{% static 'img/logo.png' %}" id="logo" alt="logo">
+	</a>
+
+
+	<h1 class="text-center py-4">Contacto</h1>
+
+
+
+	<div class="d-flex justify-content-center pt-2">
+
+		<form class="w-25 text-center form-label" method="post"> {% csrf_token %}
+			<div class="mb-3">
+				<p>Email:</p>
+				<div class=>{{ form.email }}</div>
+			</div>
+			<div class="mb-3">
+				<p>Mensaje:</p> {{ form.mensaje }}
+			</div>
+			<div class="mb-3">
+				{{ form.captcha }}
+			</div>
+
+			<button type="submit" class="rounded py-1" id="btn-login">Enviar</button>
+
+		</form>
+
+	</div>
+
+
+
+{% endblock %}

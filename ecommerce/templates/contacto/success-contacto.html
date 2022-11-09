@@ -1,0 +1,9 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+
+{% block inner_content %}
+	<a class="d-block text-center pt-5" href="{% url 'home' %}">
+		<img class="" src="{% static 'img/logo.png' %}" id="logo" alt="logo">
+	</a>
+	<p class="text-center py-4 alert-success">Muchas gracias, nos estaremos comunicando a su direccion de correo: {{ email }} para brindarle una respuesta.</p>
+{% endblock %}
