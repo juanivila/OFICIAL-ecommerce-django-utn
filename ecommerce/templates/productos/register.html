@@ -4,7 +4,7 @@
 
 
 {% block inner_content %}
-	<a class="d-block text-center pt-5" href="{% url 'home' %}">
+	<a class="d-block text-center pt-5" href="{% url 'productos:home' %}">
 		<img class="" src="{% static 'img/logo.png' %}" id="logo" alt="logo">
 	</a>
 	<h1 id="login-title" class="text-center pt-3">REGISTRAR</h1>
@@ -39,7 +39,7 @@
 			</div>
 
 			<button type="submit" class="rounded py-1" id="btn-login">Registrar</button>
-			<p class="mt-5">¿No tiene una cuenta? <a href="{% url 'register' %}" id="link-register">Registrar</a></p>
+			<p class="mt-5">¿No tiene una cuenta? <a href="{% url 'productos:register' %}" id="link-register">Registrar</a></p>
 
 		</form>
 	</div>
