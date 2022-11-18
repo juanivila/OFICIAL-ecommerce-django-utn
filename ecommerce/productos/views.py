@@ -12,9 +12,7 @@ from .models import Producto
 
 # Create your views here.
 def home(request):
-	params = {"user_auth": request.user.is_authenticated}
-	print(params)
-	return render(request, 'productos/index.html', params)
+	return render(request, 'productos/index.html')
 
 
 def login_page(request):
