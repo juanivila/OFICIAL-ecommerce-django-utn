@@ -44,7 +44,9 @@
 
 			</form>
 
-
+			{% if user_auth %}
+				<a href="{% url 'usuarios:mis-datos' %}" class="d-block my-sm-3 btn shadow-none ms-3" id="btn-login">Mis Datos</a>
+			{% endif %}
 			<a href="{% url 'productos:login' %}" class="d-block my-sm-3 btn shadow-none ms-3" id="btn-login">Login</a>
 			<a href="{% url 'contacto:contacto' %}" class="d-block my-sm-3 btn shadow-none ms-3" id="btn-login">Contacto</a>
 			<a href="{% url 'productos:agregar-producto' %}" class="d-block my-sm-3 btn shadow-none ms-3" id="btn-login">Agregar Producto</a>

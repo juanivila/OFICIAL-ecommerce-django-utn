@@ -1,6 +1,8 @@
 from django.urls import path
-from productos import views
+from . import views
+
+app_name = 'usuarios'
 
 urlpatterns = [
-	path('', views.home),
+	path('mis-datos/', views.mis_datos, name='mis-datos')
 	]
