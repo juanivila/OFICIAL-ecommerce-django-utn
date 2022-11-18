@@ -14,5 +14,5 @@ def create_datos_usuario(sender, instance, created, **kwargs):
 @receiver(post_save, sender=User)
 def update_datos_usuario(sender, instance, created, **kwargs):
 	if not created:
-		instance.DatosUsuario.save()
+		instance.datosusuario.save()
 		print('Se han actualizado los datos')
