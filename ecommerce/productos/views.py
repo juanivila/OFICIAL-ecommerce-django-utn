@@ -1,6 +1,7 @@
+from django.contrib.auth import authenticate, login
 from django.db.models import Q
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, TemplateView
 
@@ -13,7 +14,22 @@ def home(request):
 	return render(request, 'productos/index.html')
 
 
-def login(request):
+def login_page(request):
+	params = {}
+	if request.method == 'POST':
+		username = request.POST['username']
+		password = request.POST['password']
+		user = authenticate(request, username=username, password=password)
+		
+		if user is not None:
+			print(username)
+			print(password)
+			login(request, user)
+			return redirect('productos:home')
+		else:
+			print('There was an error ')
+			return render(request, 'productos/login.html', params)
+	
 	return render(request, 'productos/login.html')
 
 
