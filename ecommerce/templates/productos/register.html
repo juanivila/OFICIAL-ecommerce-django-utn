@@ -9,42 +9,27 @@
 	</a>
 	<h1 id="login-title" class="text-center pt-3">REGISTRAR</h1>
 
-
 	<div class="d-flex justify-content-center pt-2">
 
-		<form class="w-20 text-center">
+		<form method="post" class="w-25 text-center">{% csrf_token %}
+			<label for="username" class="form-label">{{ form.username.label }}</label>
+			{{ form.username }}
+
+			{{ form.email.label }}
+			{{ form.email }}
+
+			{{ form.password1.label }}
+			{{ form.password1 }}
+
+			{{ form.password2.label }}
+			{{ form.password2 }}
 
 
-			<div class="mb-3">
-				<label for="name" class="form-label">Nombre</label>
-				<input type="text" class="form-control" aria-describedby="Name">
-			</div>
-			<div class="mb-3">
-				<label for="name" class="form-label">Apellido</label>
-				<input type="text" class="form-control" aria-describedby="Name">
-			</div>
-			<div class="mb-3">
-				<label for="name" class="form-label">DNI</label>
-				<input type="" class="form-control" aria-describedby="Name">
-			</div>
+			<button>Registrarse</button>
 
-
-			<div class="mb-3">
-				<label for="exampleInputEmail1" class="form-label">Email</label>
-				<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-			</div>
-			<div class="mb-3">
-				<label for="exampleInputPassword1" class="form-label">Password</label>
-				<input type="text" class="form-control" id="exampleInputPassword1">
-			</div>
-
-			<button type="submit" class="rounded py-1" id="btn-login">Registrar</button>
-			<p class="mt-5">¿No tiene una cuenta? <a href="{% url 'productos:register' %}" id="link-register">Registrar</a></p>
 
 		</form>
 	</div>
-
-
 
 
 {% endblock %}

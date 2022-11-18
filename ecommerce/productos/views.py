@@ -1,11 +1,12 @@
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import UserCreationForm
 from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, TemplateView
 
-from .forms import ProductoForm
+from .forms import CreateUserForm, ProductoForm
 from .models import Producto
 
 
@@ -34,7 +35,19 @@ def login_page(request):
 
 
 def register(request):
-	return render(request, 'productos/register.html')
+	params = {}
+	if request.method == 'POST':
+		form = CreateUserForm(request.POST)
+		if form.is_valid():
+			print('La cuenta fue creada')
+			form.save()
+			return redirect('productos:login')
+	else:
+		form = CreateUserForm()
+	
+	params['form'] = form
+	
+	return render(request, 'productos/register.html', params)
 
 
 def hombres(request):
