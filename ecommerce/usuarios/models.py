@@ -19,4 +19,8 @@ class DatosUsuario(models.Model):
 	cuit = models.CharField(max_length=30, blank=True)
 	
 	def __str__(self):
-		return self.usuario.username
+		try:
+			return self.usuario.username
+		
+		except AttributeError:
+			return f"{self.nombre} {self.apellido}"

@@ -1,9 +1,9 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
-from django.urls import reverse_lazy
+from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, TemplateView
 
 from .forms import CreateUserForm, ProductoForm
@@ -32,6 +32,11 @@ def login_page(request):
 			return render(request, 'productos/login.html', params)
 	
 	return render(request, 'productos/login.html')
+
+
+def logout_page(request):
+	logout(request)
+	return redirect(reverse('productos:home'))
 
 
 def register(request):
