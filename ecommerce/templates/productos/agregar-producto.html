@@ -1,0 +1,63 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+
+{% block inner_content %}
+	<a class="d-block text-center pt-5" href="{% url 'productos:home' %}">
+		<img class="" src="{% static 'img/logo.png' %}" id="logo" alt="logo">
+	</a>
+
+
+	<h1 class="text-center py-4">Agregar producto</h1>
+
+
+
+	<div class="d-flex justify-content-center pt-2">
+
+		<form class="w-25 text-center form-label" method="post" enctype="multipart/form-data"> {% csrf_token %}
+			<div class="mb-3">
+				<p>Nombre del producto:</p>
+				{{ form.nombre_producto }}
+			</div>
+			<div class="mb-3">
+				<p>Imagen:</p> {{ form.imagen }}
+			</div>
+			<div class="mb-3">
+				<p>Genero:</p>
+				{{ form.genero }}
+			</div>
+			<div class="mb-3">
+				<p>Tipo de prenda:</p>
+				{{ form.tipo_de_prenda }}
+			</div>
+
+
+			<div class="mb-3">
+				<p>Color:</p>
+				{{ form.color }}
+			</div>
+
+			<div class="mb-3">
+				<p>Talle:</p>
+				{{ form.talle }}
+			</div>
+
+			<div class="mb-3">
+				<p>Valor:</p>
+				{{ form.valor }}
+			</div>
+
+			<div class="mb-3">
+				<p>Stock:</p>
+				{{ form.stock }}
+			</div>
+
+
+			<button type="submit" class="rounded py-1" id="btn-login">Enviar</button>
+
+		</form>
+
+	</div>
+
+
+
+{% endblock %}

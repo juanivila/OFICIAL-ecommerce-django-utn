@@ -5,7 +5,7 @@
 
 
 	{#	Small Screen Logo#}
-	<a class="d-block  d-md-none d-sm-flex ms-auto me-auto" href="{% url 'home' %}">
+	<a class="d-block  d-md-none d-sm-flex ms-auto me-auto" href="{% url 'productos:home' %}">
 		<img class="" src="{% static 'img/logo.png' %}" id="logo" alt="logo">
 	</a>
 
@@ -20,18 +20,18 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-5">
 				<li class="nav-item p-2">
-					<a class="nav-link" aria-current="page" href="{% url 'categoria-hombres' %}">Hombres</a>
+					<a class="nav-link" aria-current="page" href="{% url 'productos:categoria-hombres' %}">Hombres</a>
 				</li>
 				<li class="nav-item p-2">
-					<a class="nav-link" href="{% url 'categoria-mujeres' %}">Mujeres</a>
+					<a class="nav-link" href="{% url 'productos:categoria-mujeres' %}">Mujeres</a>
 				</li>
 				<li class="nav-item p-2">
-					<a class="nav-link" href="{% url 'categoria-ninos' %}">Niños</a>
+					<a class="nav-link" href="{% url 'productos:categoria-ninos' %}">Niños</a>
 				</li>
 
 
 			</ul>
-			<a class="d-flex me-auto d-none d-lg-block" href="{% url 'home' %}">
+			<a class="d-flex me-auto d-none d-lg-block" href="{% url 'productos:home' %}">
 				<img class="" src="{% static 'img/logo.png' %}" id="logo" alt="logo">
 			</a>
 
@@ -45,8 +45,28 @@
 			</form>
 
 
-			<a href="{% url 'login' %}" class="d-block my-sm-3 btn shadow-none ms-3" id="btn-login">Login</a>
-			<a href="{% url 'contacto:contacto' %}" class="d-block my-sm-3 btn shadow-none ms-3" id="btn-login">Contacto</a>
+			{#		User Menu#}
+			{% if user.is_authenticated and not user.is_superuser %}
+				<a href="{% url 'usuarios:mis-datos' %}" class="d-block my-sm-3 btn shadow-none ms-3" id="btn-login">Mis Datos</a>
+			{% endif %}
+
+
+			{% if not user.is_superuser %}
+				<a href="{% url 'contacto:contacto' %}" class="d-block my-sm-3 btn shadow-none ms-3" id="btn-login">Contacto</a>
+			{% endif %}
+
+			{#		Admin menu  #}
+			{% if user.is_superuser %}
+				<a href="{% url 'productos:agregar-producto' %}" class="d-block my-sm-3 btn shadow-none ms-3 mx-2" id="btn-login">Agregar
+					Producto</a>
+				<p class="bg-danger">Permiso de administrador</p>
+			{% endif %}
+			{% if not user.is_authenticated %}
+				<a href="{% url 'productos:login' %}" class="d-block my-sm-3 btn shadow-none ms-3" id="btn-login">Login</a>
+			{% endif %}
+			{% if user.is_authenticated %}
+				<a href="{% url 'productos:logout' %}" class="d-block my-sm-3 btn shadow-none ms-3" id="btn-login">Logout</a>
+			{% endif %}
 
 
 		</div>
