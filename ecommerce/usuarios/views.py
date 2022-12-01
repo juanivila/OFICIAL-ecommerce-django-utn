@@ -23,9 +23,9 @@ def login_page(request):
 			return redirect('productos:home')
 		else:
 			print('There was an error ')
-			return render(request, 'productos/login.html', params)
+			return render(request, 'usuarios/login.html', params)
 	
-	return render(request, 'productos/login.html')
+	return render(request, 'usuarios/login.html')
 
 
 def logout_page(request):
@@ -40,17 +40,17 @@ def register(request):
 		if form.is_valid():
 			print('La cuenta fue creada')
 			form.save()
-			return redirect('productos:login')
+			return redirect('usuarios:login')
 	else:
 		form = CreateUserForm()
 	
 	params['form'] = form
 	
-	return render(request, 'productos/register.html', params)
+	return render(request, 'usuarios/register.html', params)
 
 
-@login_required(login_url=reverse_lazy('productos:login'))
-def mis_datos(request):
+@login_required(login_url=reverse_lazy('usuarios:login'))
+def editar_datos(request):
 	params = {
 		'user': request.user,
 		"email": request.user.email,
@@ -68,8 +68,8 @@ def mis_datos(request):
 			request.session['nombre'] = form.cleaned_data['nombre']
 			return redirect(reverse_lazy('usuarios:confirmacion-mis-datos'))
 	
-	return render(request, 'usuarios/mis-datos.html', params)
+	return render(request, 'usuarios/editar-datos.html', params)
 
 
 def confirmacion_mis_datos(request):
-	return render(request, 'usuarios/mis-datos-confirmacion.html')
+	return render(request, 'usuarios/editar-datos-confirmacion.html')
