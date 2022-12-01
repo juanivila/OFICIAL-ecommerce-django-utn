@@ -62,10 +62,10 @@
 				<p class="bg-danger">Permiso de administrador</p>
 			{% endif %}
 			{% if not user.is_authenticated %}
-				<a href="{% url 'productos:login' %}" class="d-block my-sm-3 btn shadow-none ms-3" id="btn-login">Login</a>
+				<a href="{% url 'usuarios:login' %}" class="d-block my-sm-3 btn shadow-none ms-3" id="btn-login">Login</a>
 			{% endif %}
 			{% if user.is_authenticated %}
-				<a href="{% url 'productos:logout' %}" class="d-block my-sm-3 btn shadow-none ms-3" id="btn-login">Logout</a>
+				<a href="{% url 'usuarios:logout' %}" class="d-block my-sm-3 btn shadow-none ms-3" id="btn-login">Logout</a>
 			{% endif %}
 
 

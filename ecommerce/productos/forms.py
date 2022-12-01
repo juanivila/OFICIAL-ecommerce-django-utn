@@ -10,9 +10,3 @@ class ProductoForm(forms.ModelForm):
 		model = Producto
 		fields = '__all__'
 		exclude = ('fecha_agregado',)
-
-
-class CreateUserForm(UserCreationForm):
-	class Meta:
-		model = User
-		fields = ['username', 'email', 'password1', 'password2']
