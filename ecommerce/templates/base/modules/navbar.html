@@ -47,7 +47,7 @@
 
 			{#		User Menu#}
 			{% if user.is_authenticated and not user.is_superuser %}
-				<a href="{% url 'usuarios:mis-datos' %}" class="d-block my-sm-3 btn shadow-none ms-3" id="btn-login">Mis Datos</a>
+				<a href="{% url 'usuarios:ver-datos' %}" class="d-block my-sm-3 btn shadow-none ms-3" id="btn-login">Mis Datos</a>
 			{% endif %}
 
 
