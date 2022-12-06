@@ -6,7 +6,6 @@ from django.utils.html import format_html
 
 class Producto(models.Model):
 	# -------------------- Choices ------------------------------
-	
 	HO = 'HOMBRES'
 	MU = 'MUJERES'
 	NI = "NINOS"
